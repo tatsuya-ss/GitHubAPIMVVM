@@ -21,7 +21,7 @@ class GitHubModel(val name: String)
 data class GitHubEntity(val name: String)
 interface GitHubClient{
     @GET("users/tatsuya-ss")
-    fun fetchUser(): Call<GitHubEntity>
+    suspend fun fetchUser(): GitHubEntity
 }
 
 class MainActivity : AppCompatActivity() {
