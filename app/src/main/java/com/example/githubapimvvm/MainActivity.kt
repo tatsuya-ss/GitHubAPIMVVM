@@ -17,13 +17,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
-class GitHubModel(val name: String)
-data class GitHubEntity(val name: String)
-interface GitHubClient{
-    @GET("users/tatsuya-ss")
-    suspend fun fetchUser(): GitHubEntity
-}
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
