@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubapimvvm.databinding.ActivityMainBinding
 import kotlinx.coroutines.GlobalScope
@@ -26,19 +27,15 @@ interface GitHubClient{
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var viewModel: GitHubViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setupBinding()
         setupRecyclerView()
-
-        GlobalScope.launch {
-            launch {
-                fetchGitHubUser()
-            }
-        }
-
+        setupViewModel()
+        viewModel.onCreate()
     }
 
     private fun setupBinding() {
@@ -48,6 +45,20 @@ class MainActivity : AppCompatActivity() {
     private fun setupRecyclerView() {
         binding.RecyclerView.adapter = RecyclerViewAdapter(listOf<GitHubModel>(GitHubModel("俺様")))
         binding.RecyclerView.layoutManager = LinearLayoutManager(this)
+    }
+
+    private fun setupViewModel() {
+        viewModel = GitHubViewModel()
+    }
+
+}
+
+class GitHubViewModel: ViewModel() {
+
+    fun onCreate() {
+        viewModelScope.launch {
+            fetchGitHubUser()
+        }
     }
 
     private fun makeOkHttp(): OkHttpClient.Builder {
@@ -82,8 +93,5 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
-}
-
-class GitHubViewModel: ViewModel() {
 
 }
