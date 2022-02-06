@@ -1,11 +1,9 @@
 package com.example.githubapimvvm
 
+import com.example.githubapimvvm.domain.repository.GitHubRepository
 import com.example.githubapimvvm.domain.model.GitHubModel
 import com.example.githubapimvvm.domain.mapper.convertToModel
 
-interface GitHubRepository {
-    suspend fun fetchGitHubUser(): Result<GitHubModel>
-}
 
 class GitHubRepositoryImpl  constructor(
     val client: GitHubDataStore = GitHubDataStoreImpl()

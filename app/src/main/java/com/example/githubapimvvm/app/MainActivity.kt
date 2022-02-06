@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupRecyclerView() {
-        binding.RecyclerView.adapter = RecyclerViewAdapter(listOf<GitHubModel>(GitHubModel("俺様")))
+        binding.RecyclerView.adapter = RecyclerViewAdapter(listOf<GitHubModel>())
         binding.RecyclerView.layoutManager = LinearLayoutManager(this)
     }
 

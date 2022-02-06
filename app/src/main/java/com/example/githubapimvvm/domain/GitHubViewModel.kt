@@ -6,14 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.githubapimvvm.domain.model.GitHubModel
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
+import com.example.githubapimvvm.domain.repository.GitHubRepository
 import kotlinx.coroutines.launch
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
 import java.lang.Exception
-import javax.inject.Inject
 
 sealed class Result<out R> {
     data class Success<out T>(val result: T): Result<T>()
