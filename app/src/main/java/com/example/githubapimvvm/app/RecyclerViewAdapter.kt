@@ -7,7 +7,7 @@ import com.example.githubapimvvm.databinding.RecyclerviewCellBinding
 import com.example.githubapimvvm.domain.model.GitHubModel
 
 class RecyclerViewAdapter (
-    val list: List<GitHubModel>,
+    var list: List<GitHubModel>,
     ): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
     class ViewHolder(binding: RecyclerviewCellBinding): RecyclerView.ViewHolder(binding.root) {
@@ -25,6 +25,11 @@ class RecyclerViewAdapter (
 
     override fun getItemCount(): Int {
         return list.size
+    }
+
+    fun reload(list: List<GitHubModel>) {
+        this.list = list
+        notifyDataSetChanged()
     }
 
 }

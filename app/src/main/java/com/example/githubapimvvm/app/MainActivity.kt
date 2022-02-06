@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubapimvvm.GitHubViewModel
 import com.example.githubapimvvm.R
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         setupBinding()
         setupRecyclerView()
+        setupLiveData()
         viewModel.onCreate()
     }
 
@@ -32,6 +34,13 @@ class MainActivity : AppCompatActivity() {
     private fun setupRecyclerView() {
         binding.RecyclerView.adapter = RecyclerViewAdapter(listOf<GitHubModel>(GitHubModel("俺様")))
         binding.RecyclerView.layoutManager = LinearLayoutManager(this)
+    }
+
+    private fun setupLiveData() {
+        viewModel.gitHubUserLiveData.observe(this) {
+            val recyclerView = binding.RecyclerView.adapter as RecyclerViewAdapter
+            recyclerView.reload(it)
+        }
     }
 
 }
