@@ -1,11 +1,11 @@
-package com.example.githubapimvvm
+package com.example.githubapimvvm.app
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.githubapimvvm.GitHubViewModel
 import com.example.githubapimvvm.databinding.RecyclerviewCellBinding
-import retrofit2.Call
-import retrofit2.http.GET
+import com.example.githubapimvvm.domain.GitHubModel
 
 class RecyclerViewAdapter(val list: List<GitHubModel>): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 

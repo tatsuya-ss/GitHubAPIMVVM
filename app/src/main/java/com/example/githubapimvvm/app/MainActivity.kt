@@ -1,21 +1,13 @@
-package com.example.githubapimvvm
+package com.example.githubapimvvm.app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.githubapimvvm.GitHubViewModel
+import com.example.githubapimvvm.R
 import com.example.githubapimvvm.databinding.ActivityMainBinding
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import okhttp3.OkHttpClient
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
+import com.example.githubapimvvm.domain.GitHubModel
 
 class MainActivity : AppCompatActivity() {
 
