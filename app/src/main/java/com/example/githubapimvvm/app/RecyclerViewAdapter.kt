@@ -3,11 +3,12 @@ package com.example.githubapimvvm.app
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.githubapimvvm.GitHubViewModel
 import com.example.githubapimvvm.databinding.RecyclerviewCellBinding
 import com.example.githubapimvvm.domain.model.GitHubModel
 
-class RecyclerViewAdapter(val list: List<GitHubModel>): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+class RecyclerViewAdapter (
+    val list: List<GitHubModel>,
+    ): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
     class ViewHolder(binding: RecyclerviewCellBinding): RecyclerView.ViewHolder(binding.root) {
         val binding = binding
@@ -19,7 +20,6 @@ class RecyclerViewAdapter(val list: List<GitHubModel>): RecyclerView.Adapter<Rec
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.viewModel = GitHubViewModel()
         holder.binding.data = list[position]
     }
 

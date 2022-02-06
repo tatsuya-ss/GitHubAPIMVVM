@@ -7,7 +7,9 @@ interface GitHubRepository {
     suspend fun fetchGitHubUser(): Result<GitHubModel>
 }
 
-class GitHubRepositoryImpl(val client: GitHubDataStore = GitHubDataStoreImpl()): GitHubRepository {
+class GitHubRepositoryImpl  constructor(
+    val client: GitHubDataStore = GitHubDataStoreImpl()
+): GitHubRepository {
 
     override suspend fun fetchGitHubUser(): Result<GitHubModel> {
         val result = client.fetchGitHubUser()
