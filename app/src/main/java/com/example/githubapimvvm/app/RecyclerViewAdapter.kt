@@ -8,10 +8,13 @@ import com.example.githubapimvvm.domain.model.GitHubModel
 
 class RecyclerViewAdapter (
     var list: List<GitHubModel>,
-    ): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+    ): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     class ViewHolder(binding: RecyclerviewCellBinding): RecyclerView.ViewHolder(binding.root) {
         val binding = binding
+        fun setup(item: GitHubModel) {
+            binding.data = item
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -19,8 +22,10 @@ class RecyclerViewAdapter (
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.binding.data = list[position]
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        if (holder is ViewHolder) {
+            holder.setup(list[position])
+        }
     }
 
     override fun getItemCount(): Int {
