@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.githubapimvvm.GitHubViewModel
 import com.example.githubapimvvm.databinding.RecyclerviewCellBinding
-import com.example.githubapimvvm.domain.GitHubModel
+import com.example.githubapimvvm.domain.model.GitHubModel
 
 class RecyclerViewAdapter(val list: List<GitHubModel>): RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 

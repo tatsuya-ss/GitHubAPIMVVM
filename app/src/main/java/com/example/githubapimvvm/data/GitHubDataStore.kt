@@ -12,11 +12,11 @@ interface GitHubClientRetrofit {
     suspend fun fetchUser(): GitHubEntity
 }
 
-interface GitHubClient {
+interface GitHubDataStore {
     suspend fun fetchGitHubUser(): Result<GitHubEntity>
 }
 
-class GitHubClientImpl: GitHubClient {
+class GitHubDataStoreImpl: GitHubDataStore {
 
     private fun makeOkHttp(): OkHttpClient.Builder {
         val httpClient = OkHttpClient.Builder()

@@ -8,7 +8,7 @@
             type="com.example.githubapimvvm.GitHubViewModel" />
         <variable
             name="data"
-            type="com.example.githubapimvvm.domain.GitHubModel" />
+            type="com.example.githubapimvvm.domain.model.GitHubModel" />
     </data>
     
     <androidx.constraintlayout.widget.ConstraintLayout

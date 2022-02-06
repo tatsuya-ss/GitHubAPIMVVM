@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.githubapimvvm.GitHubViewModel
 import com.example.githubapimvvm.R
 import com.example.githubapimvvm.databinding.ActivityMainBinding
-import com.example.githubapimvvm.domain.GitHubModel
+import com.example.githubapimvvm.domain.model.GitHubModel
 
 class MainActivity : AppCompatActivity() {
 
